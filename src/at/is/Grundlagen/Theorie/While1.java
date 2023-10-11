@@ -27,9 +27,6 @@ public class While1 {
                 Summe = Summe + Zahl;
             }
 
-
-
-
         }
 
         System.out.println("Summe = " + Summe);

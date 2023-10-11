@@ -6,7 +6,7 @@ public class Zahlengenerator1 {
         Random Zahl = new Random();
         int Zahlengenerator = Zahl.nextInt(25);
 
-        System.out.println(Zahlengenerator);
+        //System.out.println(Zahlengenerator);
 
         switch (Zahlengenerator){
             case 1: System.out.println("Ilic Stefan"); break;
