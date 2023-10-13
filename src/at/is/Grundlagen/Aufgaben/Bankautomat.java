@@ -15,36 +15,49 @@ public class Bankautomat {
 
         Scanner scanner = new Scanner(System.in);
 
-
-        int Kontostand = 0;
+        double Kontostand = 0.0;
         boolean Abbruch = false;
+
 
         do {
 
             System.out.print("Was wollen Sie machen?\n1 Einzahlen\n2 Abheben\n3 Kontostand\n4 Beenden\n-----------------------\n");
             int Auswahl = scanner.nextInt();
 
+
             if (Auswahl == 1) {
 
                 System.out.println("Wie viel wollen Sie einzahlen: ");
-                int Einzahlung = scanner.nextInt();
+                double Einzahlung = scanner.nextDouble();
                 Kontostand = Kontostand + Einzahlung;
                 System.out.println("Ihr aktueller Kontostand beträgt: " + Kontostand + "€");
+
 
             } else if (Auswahl == 2) {
 
                 System.out.println("Wie viel wollen Sie abheben: ");
-                int Auszahlung = scanner.nextInt();
-                Kontostand = Kontostand - Auszahlung;
+                double Auszahlung = scanner.nextDouble();
+
+                if(Auszahlung < Kontostand) {
+                    Kontostand = Kontostand - Auszahlung;
+                }
+
+                else {
+                    System.out.println("Sie verfügen nicht über ein genügendes Guthaben.");
+                }
                 System.out.println("Ihr aktueller Kontostand beträgt: " + Kontostand + "€");
+
 
             } else if (Auswahl == 3) {
 
                 System.out.println("Ihr aktueller Kontostand beträgt: " + Kontostand + "€");
 
+
             } else if (Auswahl == 4) {
                 System.out.println("Programm wird Beendet");
                 Abbruch = true;
+
+
             } else {
                 System.out.println("Ungültige Eingabe");
             }
