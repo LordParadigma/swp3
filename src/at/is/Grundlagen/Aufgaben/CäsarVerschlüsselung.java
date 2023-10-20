@@ -51,22 +51,38 @@ public class CäsarVerschlüsselung {
     public static String entschlüsseln() {
         Scanner scanner = new Scanner(System.in);
         int shift = 0;
+        int auswahl = 0;
         String strEntschlüsseln = "";
         String entschlüsselt = "";
+        String leer = "";
+        boolean richtig = false;
 
         System.out.println("Geben Sie den Satz ein, der entschlüsselt werden soll.");
         strEntschlüsseln = scanner.next();
 
-        System.out.println("Um wie viele stellen soll der Satz verschoben werden ");
-        shift = scanner.nextInt();
 
-        char[] inputData = strEntschlüsseln.toCharArray();
+        do {
+            shift ++;
+            char[] inputData = strEntschlüsseln.toCharArray();
 
-        for (int i = 0; i < inputData.length; i++) {
-            int Buchstabe = inputData[i] - shift;
-            entschlüsselt += Character.toString(Buchstabe);
-        }
+            for (int i = 0; i < inputData.length; i++) {
+                int Buchstabe = inputData[i] - shift;
+                entschlüsselt += Character.toString(Buchstabe);
+            }
 
+            System.out.println(entschlüsselt);
+            System.out.println("Ergibt der Satz Sinn?(1)Ja oder (2)Nein");
+
+            auswahl = scanner.nextInt();
+
+            if(auswahl == 1){
+                richtig = true;
+            }
+            else{
+                inputData = leer.toCharArray();
+            }
+
+        }while(richtig == false);
         return entschlüsselt;
     }
 
