@@ -1,0 +1,1 @@
+Ab hier wird Objekt Orientiert Programmiert
