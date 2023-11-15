@@ -2,6 +2,8 @@ package at.is.Grundlagen.oop.Auto_Video_bsp;
 
 public class Car {
 
+    private Engine motor;
+    private Tank tank;
     private float fBenzinVerbrauch;
     private float fBenzinMenge;
     private float fTankgröße;
@@ -12,15 +14,26 @@ public class Car {
     public Car(){
     }
 
+    public Car(String sMarke, String sSeriennummer, Engine motor, Tank tank) {
+        this.sMarke = sMarke;
+        this.sSeriennummer = sSeriennummer;
+        this.motor = motor;
+        this.tank = tank;
+    }
+
     public Car(float fBenzinVerbrauch, String sMarke, String sSeriennummer) {
         this.fBenzinVerbrauch = fBenzinVerbrauch;
         this.sMarke = sMarke;
         this.sSeriennummer = sSeriennummer;
     }
 
-    public void drive() {
+    public  void TÜF(){
+        System.out.println("Marke: " + getsMarke() + "\nSeriennummer: " + getsSeriennummer() + "\nPferdestärken: " + getMotor().getiPS() + "\nLäuft mit: " + getMotor().getType() + "\nVerbrauch pro 100km: " + getMotor().getiVerbrauch() + "\nFüllmenge: " + getTank().getiFüllmenge() + "\nPosition des Tankdeckels: " + getTank().getPosition());
+    }
+
+    public void drive(int speed) {
         this.fBenzinMenge = this.fBenzinMenge - this.fBenzinVerbrauch;
-        System.out.println("I am driving");
+        System.out.println("Ich fahre mit " + speed + "km/h");
     }
 
     public void bremse(){
@@ -93,5 +106,21 @@ public class Car {
 
     public void setsFarbe(String sFarbe) {
         this.sFarbe = sFarbe;
+    }
+
+    public Engine getMotor() {
+        return motor;
+    }
+
+    public void setMotor(Engine motor) {
+        this.motor = motor;
+    }
+
+    public Tank getTank() {
+        return tank;
+    }
+
+    public void setTank(Tank tank) {
+        this.tank = tank;
     }
 }
