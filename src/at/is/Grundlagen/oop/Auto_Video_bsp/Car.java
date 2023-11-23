@@ -1,4 +1,5 @@
 package at.is.Grundlagen.oop.Auto_Video_bsp;
+import java.util.Scanner;
 
 public class Car {
 
@@ -10,6 +11,8 @@ public class Car {
     private String sMarke;
     private String sSeriennummer;
     private String sFarbe;
+
+    Scanner scanner = new Scanner(System.in);
 
     public Car(){
     }
@@ -31,9 +34,23 @@ public class Car {
         System.out.println("Marke: " + getsMarke() + "\nSeriennummer: " + getsSeriennummer() + "\nPferdestärken: " + getMotor().getiPS() + "\nLäuft mit: " + getMotor().getType() + "\nVerbrauch pro 100km: " + getMotor().getiVerbrauch() + "\nFüllmenge: " + getTank().getiFüllmenge() + "\nPosition des Tankdeckels: " + getTank().getPosition());
     }
 
-    public void drive(int speed) {
-        this.fBenzinMenge = this.fBenzinMenge - this.fBenzinVerbrauch;
-        System.out.println("Ich fahre mit " + speed + "km/h");
+    public void drive(int leistung) {
+        String speed;
+        if (leistung < 1) {
+            speed = "Motor läuft nicht! Bitte mit Leistung hoch gehen";
+        }
+        else if (leistung < 25) {
+            speed = "Ich fahre langsam";
+        } else if (leistung < 50){
+            speed = "Ich fahre normal schnell";
+        } else if (leistung < 75){
+            speed = "Ich fahre schnell";
+        } else if (leistung < 101){
+            speed = "Ich fahre sehr schnell";
+        } else {
+            speed = "Motor überhitzt! Bitte mit leistung runter gehen";
+        }
+        System.out.println(speed);
     }
 
     public void bremse(){

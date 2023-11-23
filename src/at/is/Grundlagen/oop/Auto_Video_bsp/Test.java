@@ -33,6 +33,6 @@ public class Test {
         Car c4 = new Car("BMW", "A12356", e1, t1);
 
         c4.TÜF();
-        c4.drive(80);
+        c4.drive(54);
     }
 }

@@ -7,15 +7,12 @@ public class Engine {
     private int iPS;
     private TYPE type;
     private int iVerbrauch;
+    private int iBetriebsleitung;
 
     public Engine(int iPS, TYPE type, int iVerbrauch) {
         this.iPS = iPS;
         this.type = type;
         this.iVerbrauch = iVerbrauch;
-    }
-
-    public void drive(int amount){
-        System.out.println("Der motor läuft mit " + amount);
     }
 
 
@@ -29,5 +26,13 @@ public class Engine {
 
     public int getiVerbrauch() {
         return iVerbrauch;
+    }
+
+    public int getiBetriebsleitung() {
+        return iBetriebsleitung;
+    }
+
+    public void setiBetriebsleitung(int iBetriebsleitung) {
+        this.iBetriebsleitung = iBetriebsleitung;
     }
 }
