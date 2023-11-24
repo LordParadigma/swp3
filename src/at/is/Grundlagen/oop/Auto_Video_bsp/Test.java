@@ -29,10 +29,31 @@ public class Test {
 
         Engine e1 = new Engine(760, Engine.TYPE.Benzin, 8);
         Tank t1 = new Tank(80, Tank.TYPE.links);
-
         Car c4 = new Car("BMW", "A12356", e1, t1);
 
-        c4.TÜF();
         c4.drive(54);
+        c4.TÜF();
+
+        Engine e2 = new Engine(920, Engine.TYPE.Diesel, 12, 90);
+        Tank t2 = new Tank(120, Tank.TYPE.rechts);
+        Car c5 = new Car("Mercedes", "B987654", e2, t2);
+
+        RearMirror r1r = new RearMirror(90, "rechts");
+        RearMirror r1l = new RearMirror(90, "links");
+        Tires t1vl = new Tires("Sommer", 27, "vorne links", "trocken");
+        Tires t1vr = new Tires("Sommer", 27, "vorne rechts", "trocken");
+        Tires t1hl = new Tires("Sommer", 27, "hinten links", "trocken");
+        Tires t1hr = new Tires("Sommer", 27, "hinten rechts", "trocken");
+
+        c5.addMirror(r1l);
+        c5.addMirror(r1r);
+        c5.addTires(t1vl);
+        c5.addTires(t1vr);
+        c5.addTires(t1hl);
+        c5.addTires(t1hr);
+
+        c5.drive();
+        c5.TÜF();
+
     }
 }

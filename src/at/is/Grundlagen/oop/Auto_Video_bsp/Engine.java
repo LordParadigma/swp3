@@ -15,6 +15,13 @@ public class Engine {
         this.iVerbrauch = iVerbrauch;
     }
 
+    public Engine(int iPS, TYPE type, int iVerbrauch, int iBetriebsleitung){
+        this.iPS = iPS;
+        this.type = type;
+        this.iVerbrauch = iVerbrauch;
+        this.iBetriebsleitung = iBetriebsleitung;
+    }
+
 
     public int getiPS() {
         return iPS;

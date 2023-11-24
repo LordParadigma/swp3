@@ -1,10 +1,14 @@
 package at.is.Grundlagen.oop.Auto_Video_bsp;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Car {
 
     private Engine motor;
     private Tank tank;
+    private List<RearMirror> rückspiegel;
+    private List<Tires> reifen;
     private float fBenzinVerbrauch;
     private float fBenzinMenge;
     private float fTankgröße;
@@ -22,6 +26,7 @@ public class Car {
         this.sSeriennummer = sSeriennummer;
         this.motor = motor;
         this.tank = tank;
+        this.rückspiegel = new ArrayList<>();
     }
 
     public Car(float fBenzinVerbrauch, String sMarke, String sSeriennummer) {
@@ -30,11 +35,39 @@ public class Car {
         this.sSeriennummer = sSeriennummer;
     }
 
+    public void addMirror(RearMirror rückspiegel){
+        this.rückspiegel.add(rückspiegel);
+    }
+
+    public void addTires(Tires reifen){
+        this.reifen.add(reifen);
+    }
+
     public  void TÜF(){
-        System.out.println("Marke: " + getsMarke() + "\nSeriennummer: " + getsSeriennummer() + "\nPferdestärken: " + getMotor().getiPS() + "\nLäuft mit: " + getMotor().getType() + "\nVerbrauch pro 100km: " + getMotor().getiVerbrauch() + "\nFüllmenge: " + getTank().getiFüllmenge() + "\nPosition des Tankdeckels: " + getTank().getPosition());
+        System.out.println("Marke: " + getsMarke() + "\nSeriennummer: " + getsSeriennummer() + "\nPferdestärken: " + getMotor().getiPS() + "\nLäuft mit: " + getMotor().getType() + "\nVerbrauch pro 100km: " + getMotor().getiVerbrauch() + "\nFüllmenge: " + getTank().getiFüllmenge() + "\nPosition des Tankdeckels: " + getTank().getPosition() + "\n \n");
     }
 
     public void drive(int leistung) {
+        String speed;
+        if (leistung < 1) {
+            speed = "Motor läuft nicht! Bitte mit Leistung hoch gehen";
+        }
+        else if (leistung < 25) {
+            speed = "Ich fahre langsam";
+        } else if (leistung < 50){
+            speed = "Ich fahre normal schnell";
+        } else if (leistung < 75){
+            speed = "Ich fahre schnell";
+        } else if (leistung < 101){
+            speed = "Ich fahre sehr schnell";
+        } else {
+            speed = "Motor überhitzt! Bitte mit leistung runter gehen";
+        }
+        System.out.println(speed);
+    }
+
+    public void drive() {
+        int leistung = getMotor().getiBetriebsleitung();
         String speed;
         if (leistung < 1) {
             speed = "Motor läuft nicht! Bitte mit Leistung hoch gehen";
@@ -139,5 +172,9 @@ public class Car {
 
     public void setTank(Tank tank) {
         this.tank = tank;
+    }
+
+    public List<RearMirror> getRückspiegel() {
+        return rückspiegel;
     }
 }
