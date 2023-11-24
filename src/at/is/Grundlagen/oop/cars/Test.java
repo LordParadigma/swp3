@@ -8,6 +8,9 @@ public class Test {
 
         Car c1 = new Car("Schwarz", 316, 89000, 12, p1, e1);
 
+        c1.BerechnungPreis();
+        c1.BerechnungVerbrauch(1654000);
+
 
 
     }
