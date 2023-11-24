@@ -27,6 +27,7 @@ public class Car {
         this.motor = motor;
         this.tank = tank;
         this.rückspiegel = new ArrayList<>();
+        this.reifen = new ArrayList<>();
     }
 
     public Car(float fBenzinVerbrauch, String sMarke, String sSeriennummer) {
