@@ -70,4 +70,20 @@ public class Car {
     public void setBasisverbrauch(int basisverbrauch) {
         this.basisverbrauch = basisverbrauch;
     }
+
+    public Producer getHersteller() {
+        return hersteller;
+    }
+
+    public Engine getMotor() {
+        return motor;
+    }
+
+    public double getTank() {
+        return tank;
+    }
+
+    public void setTank(double tank) {
+        this.tank = tank;
+    }
 }

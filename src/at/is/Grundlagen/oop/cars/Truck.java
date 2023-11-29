@@ -10,6 +10,15 @@ public class Truck extends Car{
         this.anhänger = anhänger;
     }
 
+    @Override
+    public void Drive(double gefahreneKilometer) {
+        double verbrauchberechnung = gefahreneKilometer / 120;
+        double abzug = getBasisverbrauch() * verbrauchberechnung;
+        double neuerTank = getTank() - abzug;
+        setTank(neuerTank);
+        System.out.println("Ich fahre und mein neuer Tank beträgt " + getTank() + " Liter");
+    }
+
     public Trailer getAnhänger() {
         return anhänger;
     }

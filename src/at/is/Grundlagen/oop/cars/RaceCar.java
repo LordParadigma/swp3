@@ -7,6 +7,15 @@ public class RaceCar extends Car{
         this.flügel = flügel;
     }
 
+    @Override
+    public void Drive(double gefahreneKilometer) {
+        double verbrauchberechnung = gefahreneKilometer / 90;
+        double abzug = this.getBasisverbrauch() * verbrauchberechnung;
+        double neuerTank = getTank() - abzug;
+        setTank(neuerTank);
+        System.out.println("Ich fahre und mein neuer Tank beträgt " + getTank() + " Liter");
+    }
+
     public Wing getFlügel() {
         return flügel;
     }
