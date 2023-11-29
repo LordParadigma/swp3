@@ -1,7 +1,6 @@
 package at.is.Grundlagen.oop.Auto_Video_bsp;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class Car {
 
@@ -15,8 +14,6 @@ public class Car {
     private String sMarke;
     private String sSeriennummer;
     private String sFarbe;
-
-    Scanner scanner = new Scanner(System.in);
 
     public Car(){
     }
@@ -45,7 +42,7 @@ public class Car {
     }
 
     public  void TÜF(){
-        System.out.println("Marke: " + getsMarke() + "\nSeriennummer: " + getsSeriennummer() + "\nPferdestärken: " + getMotor().getiPS() + "\nLäuft mit: " + getMotor().getType() + "\nVerbrauch pro 100km: " + getMotor().getiVerbrauch() + "\nFüllmenge: " + getTank().getiFüllmenge() + "\nPosition des Tankdeckels: " + getTank().getPosition() + "\n \n");
+        System.out.println("Marke: " + getsMarke() + "\nSeriennummer: " + getsSeriennummer() + "\nPferdestärken: " + getMotor().getiPS() + "\nLäuft mit: " + getMotor().getType() + "\nVerbrauch pro 100km: " + getMotor().getiVerbrauch() + "\nFüllmenge: " + getTank().getiFüllmenge() + "\nPosition des Tankdeckels: " + getTank().getPosition() + "\nGröße der Rückspiegel: " + getRückspiegel().get(0).getGröße() + "\n" + getReifen().get(0).getSaison() + " Reifen\n" + "Größe der Reifen: " + getReifen().get(0).getGröße() + "\nFür " + getReifen().get(0).getFürWetter() + "es Wetter");
     }
 
     public void drive(int leistung) {
@@ -177,5 +174,9 @@ public class Car {
 
     public List<RearMirror> getRückspiegel() {
         return rückspiegel;
+    }
+
+    public List<Tires> getReifen() {
+        return reifen;
     }
 }

@@ -5,6 +5,7 @@ public class Test {
 
         //simples Auto
 
+        /*
         Car c1 = new Car();
         c1.setsMarke("Audi");
         c1.setfBenzinVerbrauch(7);
@@ -51,9 +52,20 @@ public class Test {
         c5.addTires(t1vr);
         c5.addTires(t1hl);
         c5.addTires(t1hr);
+         */
 
-        c5.drive();
-        c5.TÜF();
+        Engine e1 = new Engine(860, Engine.TYPE.Diesel, 9, 99);
+        RearMirror r1 = new RearMirror(90, "Hinten");
+        Tank t1 = new Tank(9000, Tank.TYPE.rechts);
+        Tires tr1 = new Tires("Sommer", 10, "Vorne Links", "Trocken");
 
+        Car c1 = new Car("BMW", "ABC123", e1, t1);
+
+        c1.addTires(tr1);
+        c1.addMirror(r1);
+
+        c1.TÜF();
+        c1.drive(e1.getiBetriebsleitung());
+        c1.honk(8);
     }
 }

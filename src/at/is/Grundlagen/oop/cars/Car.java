@@ -7,18 +7,20 @@ public class Car {
     private int maximalgeschwindigkeit;
     private float basispreis;
     private double basisverbrauch;
+    private double tank;
 
-    public Car(String farbe, int maximalgeschwindigkeit, float basispreis, double basisverbrauch, Producer hersteller, Engine motor) {
+    public Car(String farbe, int maximalgeschwindigkeit, float basispreis, double basisverbrauch, double tank, Producer hersteller, Engine motor) {
         this.farbe = farbe;
         this.maximalgeschwindigkeit = maximalgeschwindigkeit;
         this.basispreis = basispreis;
         this.basisverbrauch = basisverbrauch;
+        this.tank = tank;
         this.hersteller = hersteller;
         this.motor = motor;
     }
 
     public void BerechnungPreis(){
-        float endpreis = basispreis - basispreis / 100 * hersteller.getRabatt();
+        double endpreis = basispreis - basispreis / 100 * hersteller.getRabatt();
         System.out.println("Der Preis fürs Auto mit dem Rabatt beträgt " + endpreis + "€");
     }
 
@@ -34,6 +36,18 @@ public class Car {
         } else {
             System.out.println("Der Verbrauch von Diesel-Motoren erhöht sich nicht");
         }
+    }
+
+    public void Drive(double gefahreneKilometer){
+        double verbrauchberechnung = gefahreneKilometer / 100;
+        double abzug = basisverbrauch * verbrauchberechnung;
+        double neuerTank = tank - abzug;
+        tank = neuerTank;
+        System.out.println("Ich fahre und mein neuer Tank beträgt " + tank + " Liter");
+    }
+
+    public void Bremse(){
+        System.out.println("Ich bremse");
     }
 
 

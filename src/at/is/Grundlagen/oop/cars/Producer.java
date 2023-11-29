@@ -3,9 +3,9 @@ package at.is.Grundlagen.oop.cars;
 public class Producer {
     private String name;
     private String herkunftsland;
-    private float rabatt;
+    private double rabatt;
 
-    public Producer(String name, String herkunftsland, float rabatt) {
+    public Producer(String name, String herkunftsland, double rabatt) {
         this.name = name;
         this.herkunftsland = herkunftsland;
         this.rabatt = rabatt;
@@ -19,7 +19,7 @@ public class Producer {
         return herkunftsland;
     }
 
-    public float getRabatt() {
+    public double getRabatt() {
         return rabatt;
     }
 }
