@@ -9,7 +9,7 @@ public class Test {
         r1.Division(100,25);
 
         WissenschaftlicherRechner wsr1 = new WissenschaftlicherRechner();
-        wsr1.Cosinus(90);
+        wsr1.Cosinus(0);
         wsr1.Sinus(90);
 
         Wurzelrechner wr1 = new Wurzelrechner();
