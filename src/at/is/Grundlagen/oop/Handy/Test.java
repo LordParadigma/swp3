@@ -7,9 +7,8 @@ public class Test {
         SDKarte sdKarte = new SDKarte(1000);
 
         Handy handy = new Handy("Schwarz", sim, kamera, sdKarte);
-        handy.takePicture("jpeg", "Baum");
-        handy.makeCall("+123456789");
-        handy.getFreeSpace();
-        handy.printAllFiles();
+
+        HandyGUI gui = new HandyGUI(handy);
+        gui.run();
     }
 }

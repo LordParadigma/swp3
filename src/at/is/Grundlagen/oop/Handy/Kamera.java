@@ -4,7 +4,7 @@ public class Kamera {
     private type resolution;
     public enum type {low, medium, high};
 
-    public HandyDatei makePicture(String extension, String name){
+    public HandyDatei makePicture(String name){
         int size = 0;
         if (resolution == type.low){
             size = 10;
@@ -13,7 +13,7 @@ public class Kamera {
         } else if (resolution == type.high) {
             size = 120;
         }
-        HandyDatei datei = new HandyDatei(extension, size, name);
+        HandyDatei datei = new HandyDatei("png", size, name);
         return datei;
     }
 

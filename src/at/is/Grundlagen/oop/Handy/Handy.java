@@ -6,14 +6,13 @@ public class Handy {
     private Kamera kamera;
     private SDKarte sdKarte;
 
-    public void takePicture(String extension, String name){
-        sdKarte.saveFile(kamera.makePicture(extension, name));
+    public void takePicture(String name){
+        sdKarte.saveFile(kamera.makePicture(name));
     }
 
     public void makeCall(String nummer){
         simkarte.doCall(nummer);
     }
-
     public void getFreeSpace() {
         System.out.println("Der freie Speicher beträgt: " + sdKarte.getFreeSpace());
     }
