@@ -9,7 +9,6 @@ public class Handy {
     public void takePicture(String name){
         sdKarte.saveFile(kamera.makePicture(name));
     }
-
     public void makeCall(String nummer){
         simkarte.doCall(nummer);
     }
@@ -18,6 +17,9 @@ public class Handy {
     }
     public void printAllFiles(){
         sdKarte.getAllFiles();
+        if (sdKarte.getDateien().size() == 0){
+            System.out.println("Keine Dateien gespeichert");
+        }
     }
 
 

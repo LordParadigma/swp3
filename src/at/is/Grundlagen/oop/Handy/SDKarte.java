@@ -19,6 +19,7 @@ public class SDKarte {
         }
         else{
             this.dateien.add(dateien);
+            System.out.println("Datei gespeichert");
         }
     }
 
