@@ -4,11 +4,10 @@ import java.util.Scanner;
 public class HandyGUI {
     private Handy handy;
 
-    public HandyGUI(Handy handy) {
-        this.handy = handy;
+    public HandyGUI() {
     }
 
-    public void run(){
+    public void run(Handy handy){
         System.out.println("Willkommen");
         Scanner scanner = new Scanner(System.in);
         boolean run = true;

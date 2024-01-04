@@ -8,7 +8,7 @@ public class Test {
 
         Handy handy = new Handy("Schwarz", sim, kamera, sdKarte);
 
-        HandyGUI gui = new HandyGUI(handy);
-        gui.run();
+        HandyGUI gui = new HandyGUI();
+        gui.run(handy);
     }
 }

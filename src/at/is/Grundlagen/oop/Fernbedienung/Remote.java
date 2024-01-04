@@ -15,28 +15,34 @@ public class Remote {
     }
 
     public void turnOn(){
-        isOn = true;
-        int neuerAkku1 = getBatterien().get(0).getChargingStatus();
-        int neuerAkku2 = getBatterien().get(1).getChargingStatus();
-
-        neuerAkku1 -= 5;
-        neuerAkku2 -= 5;
-        getBatterien().get(0).setChargingStatus(neuerAkku1);
-        getBatterien().get(1).setChargingStatus(neuerAkku2);
-        System.out.println("Verbraucher angeschlossen");
+        if (isOn == false) {
+            isOn = true;
+            for (int i = 0; i < batterien.size(); i++) {
+                int neuerAkku = batterien.get(i).getChargingStatus() - 5;
+                batterien.get(i).setChargingStatus(neuerAkku);
+            }
+            System.out.println("Verbraucher angeschlossen");
+        } else {
+            System.out.println("Bereits eingeschaltet");
+        }
     }
 
     public void turnOff(){
-        isOn = false;
-        System.out.println("Kein Verbraucher angeschlossen");
+        if (isOn == true) {
+            isOn = false;
+            System.out.println("Kein Verbraucher angeschlossen");
+        } else {
+            System.out.println("Bereits ausgeschaltet");
+        }
     }
 
     public void getStatus(){
-        int Akku1 = getBatterien().get(0).getChargingStatus();
-        int Akku2 = getBatterien().get(1).getChargingStatus();
-        int Mittelwert = (Akku1 + Akku2) / 2;
-
-        System.out.println("Die erste Batterie hat " + getBatterien().get(0).getChargingStatus() + "% Akku\nDoe zweite Batterie hat " + getBatterien().get(1).getChargingStatus() + "% Akku\nDer Mittelwert der Akkus beträgt " + Mittelwert + "%");
+        int Summe = 0;
+        for (int i = 0; i < batterien.size(); i++) {
+            Summe += batterien.get(i).getChargingStatus();
+        }
+        setHasPower(Summe / batterien.size());
+        System.out.println("Die erste Batterie hat " + getBatterien().get(0).getChargingStatus() + "% Akku\nDie zweite Batterie hat " + getBatterien().get(1).getChargingStatus() + "% Akku\nDer Mittelwert der Akkus beträgt " + hasPower + "%");
     }
 
     public void addBattery(Battery batterien){

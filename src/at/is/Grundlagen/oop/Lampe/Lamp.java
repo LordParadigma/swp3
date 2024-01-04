@@ -18,18 +18,21 @@ public class Lamp {
 
     public void turnAllOn(){
         for (int i = 0; i < elemente.size(); i++) {
-            elemente.get(i).setStatusOn(true);
-            int erhöhung = elemente.get(i).getStromverbrauch() + 5;
-            elemente.get(i).setStromverbrauch(erhöhung);
+            if (elemente.get(i).isStatusOn() == false) {
+                elemente.get(i).setStatusOn(true);
+                int erhöhung = elemente.get(i).getStromverbrauch() + 5;
+                elemente.get(i).setStromverbrauch(erhöhung);
+            }
         }
     }
 
-    public void getOverallPowerUsage(){
+    public double getOverallPowerUsage(){
         double gesamtStromverbrauch = 0;
         for (int i = 0; i < elemente.size(); i++) {
-            gesamtStromverbrauch = gesamtStromverbrauch + elemente.get(i).getStromverbrauch();
+            gesamtStromverbrauch += elemente.get(i).getStromverbrauch();
         }
         System.out.println("Der bisher verbrauchte Strom beträgt " + gesamtStromverbrauch);
+        return gesamtStromverbrauch;
     }
 
     public void printNamesOfLightElements(){

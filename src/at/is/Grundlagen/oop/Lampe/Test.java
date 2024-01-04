@@ -5,7 +5,7 @@ public class Test {
         Elements e1 = new Elements("LED1", "Blau", 10, true);
         Elements e2 = new Elements("LED2", "Grün", 8, false);
         Elements e3 = new Elements("LED3", "Rot", 2, false);
-        Elements e4 = new Elements("LED3", "Pink", 13, true);
+        Elements e4 = new Elements("LED4", "Pink", 13, true);
 
         Lamp l1 = new Lamp();
         l1.addLightElement(e1);
@@ -16,8 +16,8 @@ public class Test {
         l1.getOverallPowerUsage();
         l1.turnAllOn();
         l1.getOverallPowerUsage();
+        l1.getOverallPowerUsage();
         l1.printNamesOfLightElements();
         e1.turnOn();
-
     }
 }
