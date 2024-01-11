@@ -9,9 +9,20 @@ public class Musik {
     private boolean isGoing;
 
     public void playMusik(){
-        isGoing = true;
-        System.out.println("Das Lied " + name + " von " + sänger + " läuft gerade!");
-        isGoing = false;
+        if (isGoing == false) {
+            System.out.println("Das Lied " + name + " von " + sänger + " läuft jetzt");
+        } else if (isGoing == true){
+            System.out.println("Es läuft schon Musik!");
+        }
+    }
+
+    public void stopMusik(){
+        if (isGoing == true){
+            isGoing = false;
+            System.out.println("Die Musik wurde pausiert!");
+        } else {
+            System.out.println("Es läuft keine Musik!");
+        }
     }
 
     public Musik(int id, String sänger, double länge, String name, String genre) {
@@ -22,15 +33,7 @@ public class Musik {
         this.genre = genre;
     }
 
-    public String getSänger() {
-        return sänger;
-    }
-
-    public double getLänge() {
-        return länge;
-    }
-
-    public String getGenre() {
-        return genre;
+    public void setGoing(boolean going) {
+        isGoing = going;
     }
 }

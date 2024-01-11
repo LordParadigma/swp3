@@ -14,19 +14,40 @@ public class Website {
 
 
     public void play(){
-        if (AnzahlGespielterLieder <= 8){
-            musik.get(random.nextInt(musik.size() + 1)).playMusik();
+        if (AnzahlGespielterLieder < 8){
+            musik.get(random.nextInt(musik.size())).playMusik();
+            for (int i = 0; i < musik.size(); i++) {
+                musik.get(i).setGoing(true);
+            }
             AnzahlGespielterLieder++;
-        } else {
+        } else if (AnzahlGespielterLieder == 8){
             werbung.get(random.nextInt(werbung.size())).playAdd();
             AnzahlGespielterLieder = 0;
+            play();
+        }
+    }
+
+    public void stop(){
+        if (AnzahlGespielterLieder == 8){
+            werbung.get(random.nextInt(werbung.size())).stopAdd();
+        } else {
+            musik.get(random.nextInt(musik.size())).stopMusik();
+            for (int i = 0; i < musik.size(); i++) {
+                musik.get(i).setGoing(false);
+            }
         }
     }
 
     public void skip(){
         if (skipMenge <= 6){
             System.out.print("Das Lied wurde überspringen. ");
+            for (int i = 0; i < musik.size(); i++) {
+                musik.get(i).setGoing(false);
+            }
             play();
+            for (int i = 0; i < musik.size(); i++) {
+                musik.get(i).setGoing(true);
+            }
             skipMenge++;
         }else {
             System.out.println("Sie haben ihr Skip-Limet für diese Stunde erreicht!");
@@ -56,30 +77,4 @@ public class Website {
         this.werbung = new ArrayList<>();
         this.musik = new ArrayList<>();
     }
-
-    public int getSkipMenge() {
-        return skipMenge;
-    }
-
-    public int getSkipTimer() {
-        return SkipTimer;
-    }
-
-    public List<Werbung> getWerbung() {
-        return werbung;
-    }
-
-    public List<Musik> getMusik() {
-        return musik;
-    }
-
-    public int getAnzahlGespielterLieder() {
-        return AnzahlGespielterLieder;
-    }
-
-    public Random getRandom() {
-        return random;
-    }
-
-
 }

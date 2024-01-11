@@ -16,7 +16,7 @@ public class gui {
         boolean abbruch = false;
 
         while (abbruch == false) {
-            System.out.println("1. Abspielen\n2. Überspringen\n3. Skips zurücksetzen\n4. gui beenden");
+            System.out.println("1. Abspielen\n2. Überspringen\n3. Skips zurücksetzen\n4. pausieren \n5. gui beenden");
             int auswahl = scanner.nextInt();
             switch (auswahl) {
                 case 1:
@@ -31,6 +31,9 @@ public class gui {
                     website.resetSkip(skipZeit);
                     break;
                 case 4:
+                    website.stop();
+                    break;
+                case 5:
                     System.out.println("Spotify wird beendet!");
                     abbruch = true;
                     break;
